@@ -1,16 +1,22 @@
-<form [formGroup]="form" class="form-search" fxLayout="column" fxLayoutAlign="space-between center">
+<form [formGroup]="form" class="form-search" fxLayout="column" fxLayoutAlign="space-between center" (ngSubmit)="submit()">
     <span class="input-container">
         <input type="text" formControlName="collection1" placeholder="Enter collection 1 in form 1, 2, 3, 4, 5, ... (ascending order)">
     </span>
     <span class="input-container">
         <input type="text" formControlName="collection2" placeholder="Enter collection 2 in form 1, 2, 3, 4, 5, ... (ascending order)">
     </span>
+
+    <br/>
+    <span *ngIf="displayMergedCollection">
+      Merged Collection: 
+      <ng-container *ngFor="let item of mergedCollection; index as i;">
+        {{item}}
+        <span *ngIf="mergedCollection.length-1 !== i">,</span>
+      </ng-container>
+    </span>
+
+    <span class="input-container">
+      <button type="submit" [disabled]="!displayMergedCollection">Submit</button>
+    </span>
+
 </form>
-<br/>
-<span *ngIf="displayMergedCollection">
-  Merged Collection: 
-  <ng-container *ngFor="let item of mergedCollection; index as i;">
-    {{item}}
-    <span *ngIf="mergedCollection.length-1 !== i">,</span>
-  </ng-container>
-</span>

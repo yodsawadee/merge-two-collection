@@ -60,4 +60,8 @@ export class AppComponent implements OnInit {
     return merged;
   }
 
+  submit() {
+    alert('Merged Collection is '+ this.mergedCollection);
+  }
+
 }
