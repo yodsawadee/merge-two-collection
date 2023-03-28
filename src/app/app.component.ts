@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   
   ngOnInit() { 
     this.form.valueChanges.subscribe(it => {
-      this.collection1 = this.form.controls['collection1'].getRawValue().trim().trim().split(/[ \,]+/).map((item:any) => Number(item));
-      this.collection2 = this.form.controls['collection2'].getRawValue().trim().trim().split(/[ \,]+/).map((item:any) => Number(item));
+      this.collection1 = this.form.controls['collection1'].getRawValue().trim().split(/[ \,]+/).map((item:any) => Number(item));
+      this.collection2 = this.form.controls['collection2'].getRawValue().trim().split(/[ \,]+/).map((item:any) => Number(item));
       if(this.collection1.length > 0 && this.collection2.length > 0) {
         this.displayMergedCollection = true;
       }
